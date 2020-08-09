@@ -6,10 +6,8 @@ pipeline {
   stages {
     stage('Upload to AWS') {
       steps {
-        sh '''
-          /usr/local/bin/aws s3 ls s3://udacitydevops3.thruniverse.com/
-          /usr/local/bin/aws s3 cp index.html s3://udacitydevops3.thruniverse.com/index.html
-        '''
+        withAWS(region:'us-west-2',profile:'aws-static') { 
+          s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'udacitydevops3.thruniverse.com', path:'/index.html')
       }
     }
   }
