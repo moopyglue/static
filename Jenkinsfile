@@ -7,7 +7,8 @@ pipeline {
     stage('Upload to AWS') {
       steps {
         sh '''
-          aws s3 cp index.html s3://udacitydevops3.thruniverse.com/index.html
+          /usr/local/bin/aws s3 ls s3://udacitydevops3.thruniverse.com/
+          /usr/local/bin/aws s3 cp index.html s3://udacitydevops3.thruniverse.com/index.html
         '''
       }
     }
