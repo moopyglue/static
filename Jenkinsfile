@@ -10,6 +10,6 @@ pipeline {
           aws s3 cp index.html s3://udacitydevops3.thruniverse.com/index.html
         '''
       }
-
+    }
   }
 }
